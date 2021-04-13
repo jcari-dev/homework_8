@@ -10,6 +10,8 @@
   "author": "uwume",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "get-json": "^1.0.1",
+    "got": "^11.8.2"
   }
 }

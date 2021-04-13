@@ -1,4 +1,5 @@
 const express = require('express');
+const getJSON = require('get-json')
 const app = express();
 
 const port = 3000;
@@ -48,6 +49,23 @@ app.get('/fibonacci/:num', (req, res) => {
         res.send(notFib);
     }
 });
+
+app.get('/trivia', (req, res) => {
+    let answer;
+    let question;
+    let br = "<br>";
+    getJSON('http://jservice.io/api/random', function(error, response) {
+        //I am aware that I am not running error checking here
+        let answer = response[0].answer;
+        let question = response[0].question;
+        console.log(typeof response)
+        res.send(`Trivia question ID: ${response[0].id} <br> Question: ${question} <br> Answer: ${answer}`);
+
+    });
+    // res.send(question + br + answer);
+
+});
+
 
 
 
