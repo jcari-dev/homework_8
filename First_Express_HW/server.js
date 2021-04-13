@@ -36,6 +36,20 @@ app.get('/magic/:probNot', (req, res) => {
     res.send(butHopefully + br + random);
 });
 
+app.get('/fibonacci/:num', (req, res) => {
+    let fib = "FIBONACCI!"
+    let notFib = "Not fib."
+    let numfib = req.params['num'];
+    let numcheck1 = (5 * numfib * numfib + 4)
+    let numcheck2 = (5 * numfib * numfib - 4)
+    if (numcheck1 % Math.sqrt(numcheck1) == 0 || numcheck2 % Math.sqrt(numcheck2) == 0) {
+        res.send(fib);
+    } else {
+        res.send(notFib);
+    }
+});
+
+
 
 app.listen(port, () => {
     console.log('app is running on port: ', port);
