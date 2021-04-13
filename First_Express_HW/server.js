@@ -4,12 +4,13 @@ const app = express();
 const port = 3000;
 
 
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    let total = req.params['total'];
+    let tipPercentage = req.params['tipPercentage'];
+    let answer = total * (tipPercentage / 100);
 
-app.get('/greeting/:name', (req, res) => {
-    console.log('req.query: ', req.query);
-    res.send('Hello ' + req.params['name'] + '!');
+    res.send(answer.toString());
 });
-
 
 
 app.listen(port, () => {
